@@ -8,70 +8,70 @@ module.exports = (self) => {
 			name: 'Pan Left',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x01\x03\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x01\x03\xFF')
 			},
 		},
 		right: {
 			name: 'Pan Right',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x02\x03\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x02\x03\xFF')
 			},
 		},
 		up: {
 			name: 'Tilt Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x03\x01\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x03\x01\xFF')
 			},
 		},
 		down: {
 			name: 'Tilt Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x03\x02\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x03\x02\xFF')
 			},
 		},
 		upLeft: {
 			name: 'Up Left',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x01\x01\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x01\x01\xFF')
 			},
 		},
 		upRight: {
 			name: 'Up Right',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x02\x01\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x02\x01\xFF')
 			},
 		},
 		downLeft: {
 			name: 'Down Left',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x01\x02\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x01\x02\xFF')
 			},
 		},
 		downRight: {
 			name: 'Down Right',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x02\x02\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x02\x02\xFF')
 			},
 		},
 		stop: {
 			name: 'Pan/Tilt Stop',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x03\x03\xFF')
+				self.send(camId + '\x01\x06\x01' + ptSpeed + ptSpeed + '\x03\x03\xFF')
 			},
 		},
 		home: {
 			name: 'Pan/Tilt Home',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x04\xFF')
+				self.send(camId + '\x01\x06\x04\xFF')
 			},
 		},
 		ptSpeedS: {
@@ -87,7 +87,7 @@ module.exports = (self) => {
 			callback: async (event) => {
 				self.ptSpeed = event.options.speed
 				ptSpeed = String.fromCharCode(parseInt(self.ptSpeed, 16) & 0xff)
-				// self.VISCA.send(cmd)
+				// self.send(cmd)
 			},
 			// SAMPLE EVENT RESPONSE
 			// event: {
@@ -138,9 +138,9 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.bol == '1') {
-					self.VISCA.send(camId + '\x01\x06\x44\x03\xFF')
+					self.send(camId + '\x01\x06\x44\x03\xFF')
 				} else {
-					self.VISCA.send(camId + '\x01\x06\x44\x02\xFF')
+					self.send(camId + '\x01\x06\x44\x02\xFF')
 				}
 			},
 		},
@@ -148,14 +148,14 @@ module.exports = (self) => {
 			name: 'Brightness +',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0D\x02\xFF')
+				self.send(camId + '\x01\x04\x0D\x02\xFF')
 			},
 		},
 		brightnessD: {
 			name: 'Brightness -',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0D\x03\xFF')
+				self.send(camId + '\x01\x04\x0D\x03\xFF')
 			},
 		},
 		backlightComp: {
@@ -174,9 +174,9 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.bol == '1') {
-					self.VISCA.send(camId + '\x01\x04\x33\x02\xFF')
+					self.send(camId + '\x01\x04\x33\x02\xFF')
 				} else {
-					self.VISCA.send(camId + '\x01\x04\x33\x03\xFF')
+					self.send(camId + '\x01\x04\x33\x03\xFF')
 				}
 			},
 		},
@@ -184,21 +184,21 @@ module.exports = (self) => {
 			name: 'Zoom In',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x07\x02\xFF')
+				self.send(camId + '\x01\x04\x07\x02\xFF')
 			},
 		},
 		zoomO: {
 			name: 'Zoom Out',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x07\x03\xFF')
+				self.send(camId + '\x01\x04\x07\x03\xFF')
 			},
 		},
 		zoomS: {
 			name: 'Zoom Stop',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x07\x00\xFF')
+				self.send(camId + '\x01\x04\x07\x00\xFF')
 			},
 		},
 		ciZoom: {
@@ -216,9 +216,9 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.bol == '1') {
-					self.VISCA.send(camId + '\x01\x04\x06\x04\xFF')
+					self.send(camId + '\x01\x04\x06\x04\xFF')
 				} else {
-					self.VISCA.send(camId + '\x01\x04\x06\x03\xFF')
+					self.send(camId + '\x01\x04\x06\x03\xFF')
 				}
 			},
 		},
@@ -226,63 +226,63 @@ module.exports = (self) => {
 			name: 'Power On Camera',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x00\x02\xFF')
+				self.send(camId + '\x01\x04\x00\x02\xFF')
 			},
 		},
 		camOff: {
 			name: 'Power Off Camera',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x00\x03\xFF')
+				self.send(camId + '\x01\x04\x00\x03\xFF')
 			},
 		},
 		menuToggle: {
 			name: 'Menu/Back',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x06\x06\x10\xFF')
+				self.send(camId + '\x01\x06\x06\x10\xFF')
 			},
 		},
 		menuEnter: {
 			name: 'Menu Enter',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x7E\x01\x02\x00\x01\xFF')
+				self.send(camId + '\x01\x7E\x01\x02\x00\x01\xFF')
 			},
 		},
 		wbOutdoor: {
 			name: 'Outdoor',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x35\x02\xFF')
+				self.send(camId + '\x01\x04\x35\x02\xFF')
 			},
 		},
 		wbIndoor: {
 			name: 'Indoor',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x35\x01\xFF')
+				self.send(camId + '\x01\x04\x35\x01\xFF')
 			},
 		},
 		focusN: {
 			name: 'Focus Near',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x08\x03\xFF')
+				self.send(camId + '\x01\x04\x08\x03\xFF')
 			},
 		},
 		focusF: {
 			name: 'Focus Far',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x08\x02\xFF')
+				self.send(camId + '\x01\x04\x08\x02\xFF')
 			},
 		},
 		focusS: {
 			name: 'Focus Stop',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x08\x00\xFF')
+				self.send(camId + '\x01\x04\x08\x00\xFF')
 			},
 		},
 		focusM: {
@@ -300,10 +300,10 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.bol == '1') {
-					self.VISCA.send(camId + '\x01\x04\x38\x03\xFF')
+					self.send(camId + '\x01\x04\x38\x03\xFF')
 					self.data.oaf = 'Manual'
 				} else {
-					self.VISCA.send(camId + '\x01\x04\x38\x02\xFF')
+					self.send(camId + '\x01\x04\x38\x02\xFF')
 					self.data.oaf = 'Auto'
 				}
 				self.checkFeedbacks()
@@ -313,7 +313,7 @@ module.exports = (self) => {
 			name: 'One Push Auto Focus',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x18\x01\xFF')
+				self.send(camId + '\x01\x04\x18\x01\xFF')
 			},
 		},
 		expM: {
@@ -335,23 +335,23 @@ module.exports = (self) => {
 			callback: async (event) => {
 				switch (parseInt(event.options.val)) {
 					case 0:
-						self.VISCA.send(camId + '\x01\x04\x39\x00\xFF')
+						self.send(camId + '\x01\x04\x39\x00\xFF')
 						self.data.exposureMode = 'Auto'
 						break
 					case 1:
-						self.VISCA.send(camId + '\x01\x04\x39\x03\xFF')
+						self.send(camId + '\x01\x04\x39\x03\xFF')
 						self.data.exposureMode = 'Manual'
 						break
 					case 2:
-						self.VISCA.send(camId + '\x01\x04\x39\x0A\xFF')
+						self.send(camId + '\x01\x04\x39\x0A\xFF')
 						self.data.exposureMode = 'Shutter Priority'
 						break
 					case 3:
-						self.VISCA.send(camId + '\x01\x04\x39\x0B\xFF')
+						self.send(camId + '\x01\x04\x39\x0B\xFF')
 						self.data.exposureMode = 'Iris Priority'
 						break
 					case 4:
-						self.VISCA.send(camId + '\x01\x04\x39\x0E\xFF')
+						self.send(camId + '\x01\x04\x39\x0E\xFF')
 						self.data.exposureMode = 'Gain Priority'
 						break
 				}
@@ -374,15 +374,15 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.val == 0) {
-					self.VISCA.send(camId + '\x01\x04\x02\x00\xFF')
+					self.send(camId + '\x01\x04\x02\x00\xFF')
 					return
 				}
 				if (event.options.val == 1) {
-					self.VISCA.send(camId + '\x01\x04\x02\x02\xFF')
+					self.send(camId + '\x01\x04\x02\x02\xFF')
 					return
 				}
 				if (event.options.val == 2) {
-					self.VISCA.send(camId + '\x01\x04\x02\x03\xFF')
+					self.send(camId + '\x01\x04\x02\x03\xFF')
 					return
 				}
 			},
@@ -406,27 +406,27 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.val == 0) {
-					self.VISCA.send(camId + '\x01\x04\x35\x00\xFF')
+					self.send(camId + '\x01\x04\x35\x00\xFF')
 					return
 				}
 				if (event.options.val == 1) {
-					self.VISCA.send(camId + '\x01\x04\x35\x01\xFF')
+					self.send(camId + '\x01\x04\x35\x01\xFF')
 					return
 				}
 				if (event.options.val == 2) {
-					self.VISCA.send(camId + '\x01\x04\x35\x02\xFF')
+					self.send(camId + '\x01\x04\x35\x02\xFF')
 					return
 				}
 				if (event.options.val == 3) {
-					self.VISCA.send(camId + '\x01\x04\x35\x03\xFF')
+					self.send(camId + '\x01\x04\x35\x03\xFF')
 					return
 				}
 				if (event.options.val == 4) {
-					self.VISCA.send(camId + '\x01\x04\x35\x04\xFF')
+					self.send(camId + '\x01\x04\x35\x04\xFF')
 					return
 				}
 				if (event.options.val == 5) {
-					self.VISCA.send(camId + '\x01\x04\x35\x05\xFF')
+					self.send(camId + '\x01\x04\x35\x05\xFF')
 					return
 				}
 			},
@@ -435,7 +435,7 @@ module.exports = (self) => {
 			name: 'One push WB trigger',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x10\x05\xFF')
+				self.send(camId + '\x01\x04\x10\x05\xFF')
 			},
 		},
 		wbCustom: {
@@ -463,7 +463,7 @@ module.exports = (self) => {
 				},
 			],
 			callback: async (event) => {
-				self.VISCA.send(camId + '\x01\x04\x35\x05\xFF')
+				self.send(camId + '\x01\x04\x35\x05\xFF')
 				setTimeout(() => {
 					// Set Red Gain
 					const r = event.options.rVal
@@ -471,7 +471,7 @@ module.exports = (self) => {
 						.padStart(2, '0')
 						.split('')
 						.map((x) => String.fromCharCode(parseInt(x, 16)))
-					self.VISCA.send(camId + '\x01\x04\x43\x00\x00' + r[0] + r[1] + '\xFF')
+					self.send(camId + '\x01\x04\x43\x00\x00' + r[0] + r[1] + '\xFF')
 					setTimeout(() => {
 						// Set Blue Gain
 						const b = event.options.bVal
@@ -479,7 +479,7 @@ module.exports = (self) => {
 							.padStart(2, '0')
 							.split('')
 							.map((x) => String.fromCharCode(parseInt(x, 16)))
-						self.VISCA.send(camId + '\x01\x04\x44\x00\x00' + b[0] + b[1] + '\xFF')
+						self.send(camId + '\x01\x04\x44\x00\x00' + b[0] + b[1] + '\xFF')
 					}, 50)
 				}, 50)
 			},
@@ -505,7 +505,7 @@ module.exports = (self) => {
 					.padStart(2, '0')
 					.split('')
 					.map((x) => String.fromCharCode(parseInt(x, 16)))
-				self.VISCA.send(camId + '\x01\x04\x43\x00\x00' + r[0] + r[1] + '\xFF')
+				self.send(camId + '\x01\x04\x43\x00\x00' + r[0] + r[1] + '\xFF')
 			},
 		},
 		wbBlueS: {
@@ -529,56 +529,56 @@ module.exports = (self) => {
 					.padStart(2, '0')
 					.split('')
 					.map((x) => String.fromCharCode(parseInt(x, 16)))
-				self.VISCA.send(camId + '\x01\x04\x44\x00\x00' + b[0] + b[1] + '\xFF')
+				self.send(camId + '\x01\x04\x44\x00\x00' + b[0] + b[1] + '\xFF')
 			},
 		},
 		wbRedUp: {
 			name: 'White Balance - Red Gain Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x03\x02\xFF')
+				self.send(camId + '\x01\x04\x03\x02\xFF')
 			},
 		},
 		wbRedDown: {
 			name: 'White Balance - Red Gain Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x03\x03\xFF')
+				self.send(camId + '\x01\x04\x03\x03\xFF')
 			},
 		},
 		wbBlueUp: {
 			name: 'White Balance - Blue Gain Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x04\x02\xFF')
+				self.send(camId + '\x01\x04\x04\x02\xFF')
 			},
 		},
 		wbBlueDown: {
 			name: 'White Balance - Blue Gain Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x04\x03\xFF')
+				self.send(camId + '\x01\x04\x04\x03\xFF')
 			},
 		},
 		wbOffsetReset: {
 			name: 'White Balance - Offset Reset',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x7E\x01\x2E\x00\x00\xFF')
+				self.send(camId + '\x01\x7E\x01\x2E\x00\x00\xFF')
 			},
 		},
 		wbOffsetUp: {
 			name: 'White Balance - Offset Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x7E\x01\x2E\x00\x02\xFF')
+				self.send(camId + '\x01\x7E\x01\x2E\x00\x02\xFF')
 			},
 		},
 		wbOffsetDown: {
 			name: 'White Balance - Offset Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x7E\x01\x2E\x00\x03\xFF')
+				self.send(camId + '\x01\x7E\x01\x2E\x00\x03\xFF')
 			},
 		},
 		WDR: {
@@ -598,19 +598,19 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.val == 0) {
-					self.VISCA.send(camId + '\x01\x7E\x04\x00\x00\xFF')
+					self.send(camId + '\x01\x7E\x04\x00\x00\xFF')
 					return
 				}
 				if (event.options.val == 1) {
-					self.VISCA.send(camId + '\x01\x7E\x04\x00\x01\xFF')
+					self.send(camId + '\x01\x7E\x04\x00\x01\xFF')
 					return
 				}
 				if (event.options.val == 2) {
-					self.VISCA.send(camId + '\x01\x7E\x04\x00\x02\xFF')
+					self.send(camId + '\x01\x7E\x04\x00\x02\xFF')
 					return
 				}
 				if (event.options.val == 3) {
-					self.VISCA.send(camId + '\x01\x7E\x04\x00\x03\xFF')
+					self.send(camId + '\x01\x7E\x04\x00\x03\xFF')
 					return
 				}
 			},
@@ -619,14 +619,14 @@ module.exports = (self) => {
 			name: 'Gain Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0C\x02\xFF')
+				self.send(camId + '\x01\x04\x0C\x02\xFF')
 			},
 		},
 		gainD: {
 			name: 'Gain Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0C\x03\xFF')
+				self.send(camId + '\x01\x04\x0C\x03\xFF')
 			},
 		},
 		gainS: {
@@ -643,21 +643,21 @@ module.exports = (self) => {
 				let cmd = Buffer.from(camId + '\x01\x04\x4C\x00\x00\x00\x00\xFF', 'binary')
 				cmd.writeUInt8((parseInt(event.options.val, 16) & 0xf0) >> 4, 6)
 				cmd.writeUInt8(parseInt(event.options.val, 16) & 0x0f, 7)
-				self.VISCA.send(cmd)
+				self.send(cmd)
 			},
 		},
 		irisU: {
 			name: 'Iris Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0B\x02\xFF')
+				self.send(camId + '\x01\x04\x0B\x02\xFF')
 			},
 		},
 		irisD: {
 			name: 'Iris Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0B\x03\xFF')
+				self.send(camId + '\x01\x04\x0B\x03\xFF')
 			},
 		},
 		irisS: {
@@ -674,21 +674,21 @@ module.exports = (self) => {
 				let cmd = Buffer.from(camId + '\x01\x04\x4B\x00\x00\x00\x00\xFF', 'binary')
 				cmd.writeUInt8((parseInt(event.options.val, 16) & 0xf0) >> 4, 6)
 				cmd.writeUInt8(parseInt(event.options.val, 16) & 0x0f, 7)
-				self.VISCA.send(cmd)
+				self.send(cmd)
 			},
 		},
 		shutU: {
 			name: 'Shutter Up',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0A\x02\xFF')
+				self.send(camId + '\x01\x04\x0A\x02\xFF')
 			},
 		},
 		shutD: {
 			name: 'Shutter Down',
 			options: [],
 			callback: async () => {
-				self.VISCA.send(camId + '\x01\x04\x0A\x03\xFF')
+				self.send(camId + '\x01\x04\x0A\x03\xFF')
 			},
 		},
 		shutS: {
@@ -705,7 +705,7 @@ module.exports = (self) => {
 				let cmd = Buffer.from(camId + '\x01\x04\x4A\x00\x00\x00\x00\xFF', 'binary')
 				cmd.writeUInt8((parseInt(event.options.val, 16) & 0xf0) >> 4, 6)
 				cmd.writeUInt8(parseInt(event.options.val, 16) & 0x0f, 7)
-				self.VISCA.send(cmd)
+				self.send(cmd)
 			},
 		},
 		savePset: {
@@ -719,7 +719,7 @@ module.exports = (self) => {
 				},
 			],
 			callback: async (event) => {
-				self.VISCA.send(
+				self.send(
 					camId + '\x01\x04\x3F\x01' + String.fromCharCode(parseInt(event.options.val, 16) & 0xff) + '\xFF'
 				)
 			},
@@ -735,7 +735,7 @@ module.exports = (self) => {
 				},
 			],
 			callback: async (event) => {
-				self.VISCA.send(
+				self.send(
 					camId + '\x01\x04\x3F\x02' + String.fromCharCode(parseInt(event.options.val, 16) & 0xff) + '\xFF'
 				)
 			},
@@ -757,7 +757,7 @@ module.exports = (self) => {
 				},
 			],
 			callback: async (event) => {
-				self.VISCA.send(
+				self.send(
 					camId +
 						'\x01\x7E\x01\x0B' +
 						String.fromCharCode(parseInt(event.options.val, 16) & 0xff) +
@@ -781,9 +781,9 @@ module.exports = (self) => {
 			],
 			callback: async (event) => {
 				if (event.options.bol == 1) {
-					self.VISCA.send(camId + '\x01\x7E\x01\x0A\x00\x02\xFF')
+					self.send(camId + '\x01\x7E\x01\x0A\x00\x02\xFF')
 				} else {
-					self.VISCA.send(camId + '\x01\x7E\x01\x0A\x00\x03\xFF')
+					self.send(camId + '\x01\x7E\x01\x0A\x00\x03\xFF')
 				}
 			},
 		},
